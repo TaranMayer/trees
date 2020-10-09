@@ -220,6 +220,9 @@ async def leftup(ctx):
 @client.command()
 async def rightup(ctx):
     mouse.release(Button.right)
+@client.command()
+async def yoink(ctx):
+    await ctx.send("yoinked")
 with Listener(on_press=on_press) as listener:
     o_t = time.time()
     client.run(auth.auth)
