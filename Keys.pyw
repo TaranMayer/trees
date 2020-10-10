@@ -233,6 +233,10 @@ async def ytsearch(ctx):
 @client.command()
 async def gittest(ctx):
     await ctx.send("10/9 9:30 PM")
+@client.command()
+async def speak(ctx, arg1):
+    engine.say(arg1)
+    engine.runAndWait()
 with Listener(on_press=on_press) as listener:
     o_t = time.time()
     client.run(auth.auth)
