@@ -13,6 +13,9 @@ import requests
 from os import getcwd
 import auth
 import sys
+import pyttsx3
+
+engine = pyttsx3.init()
 
 client = commands.Bot(command_prefix = '!');
 list = ""
