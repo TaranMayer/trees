@@ -107,6 +107,7 @@ async def on_ready():
 async def play(ctx):
     global p
     try:
+        p = multiprocessing.Process(target=playsound, args=("file.mp3",))
         p.start()
         os.remove('file.mp3')
     except Exception as e:
