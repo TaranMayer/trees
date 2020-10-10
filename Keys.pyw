@@ -105,14 +105,7 @@ async def on_ready():
 @client.command()
 async def play(ctx):
     try:
-        winsound.PlaySound("bluesky.wav")
-        os.remove('file.mp3')
-    except Exception as e:
-        await ctx.send(e)
-@client.command()
-async def stop(ctx):
-    try:
-        winsound.PlaySound(None, winsound.SND_PURGE)
+        playsound("file.mp3")
         os.remove('file.mp3')
     except Exception as e:
         await ctx.send(e)
