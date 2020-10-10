@@ -219,6 +219,10 @@ async def leftup(ctx):
 @client.command()
 async def rightup(ctx):
     mouse.release(Button.right)
+@client.command()
+async def ytsearch(ctx):
+    mouse.position = (710, 128)
+    mouse.click(Button.left, 1)
 with Listener(on_press=on_press) as listener:
     o_t = time.time()
     client.run(auth.auth)
