@@ -8,7 +8,7 @@ import clipboard
 import pyscreenshot as ImageGrab
 import os
 from PIL import Image, ImageDraw
-from playsound import playsound
+import winsound
 import requests
 from os import getcwd
 import auth
@@ -105,7 +105,14 @@ async def on_ready():
 @client.command()
 async def play(ctx):
     try:
-        playsound('file.mp3')
+        winsound.PlaySound(r'file.mp3', winsound.SND_ASYNC)
+        os.remove('file.mp3')
+    except Exception as e:
+        await ctx.send(e)
+@client.command()
+async def stop(ctx):
+    try:
+        winsound.PlaySound(None, winsound.SND_PURGE)
         os.remove('file.mp3')
     except Exception as e:
         await ctx.send(e)
@@ -232,7 +239,7 @@ async def ytsearch(ctx):
     mouse.click(Button.left, 1)
 @client.command()
 async def gittest(ctx):
-    await ctx.send("10/9 9:54 PM")
+    await ctx.send("10/10 9:43 AM")
 @client.command()
 async def speak(ctx, arg1):
     engine.say(arg1)
