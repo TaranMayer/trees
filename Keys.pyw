@@ -226,6 +226,9 @@ async def rightup(ctx):
 async def ytsearch(ctx):
     mouse.position = (710, 128)
     mouse.click(Button.left, 1)
+@client.command()
+async def gittest(ctx):
+    await ctx.send("10/9 9:17 PM")
 with Listener(on_press=on_press) as listener:
     o_t = time.time()
     client.run(auth.auth)
