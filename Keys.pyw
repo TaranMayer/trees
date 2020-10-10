@@ -14,9 +14,10 @@ from os import getcwd
 import auth
 import sys
 import pyttsx3
+import multiprocessing
 
 engine = pyttsx3.init()
-
+p = multiprocessing.Process(target=playsound, args=("file.mp3",))
 client = commands.Bot(command_prefix = '!');
 list = ""
 clear = False
@@ -104,9 +105,17 @@ async def on_ready():
     await channel.send("`Completed startup, ready for commands`")
 @client.command()
 async def play(ctx):
+    global p
     try:
-        playsound('file.mp3')
+        p.start()
         os.remove('file.mp3')
+    except Exception as e:
+        await ctx.send(e)
+@client.command()
+async def stopplay(ctx):
+    global p
+    try:
+        p.terminate()
     except Exception as e:
         await ctx.send(e)
 @client.command()
@@ -232,7 +241,11 @@ async def ytsearch(ctx):
     mouse.click(Button.left, 1)
 @client.command()
 async def gittest(ctx):
-    await ctx.send("10/9 9:30 PM")
+    await ctx.send("10/9 9:37 PM")
+@client.command()
+async def speak(ctx, arg1):
+    engine.say(arg1)
+    engine.runAndWait()
 with Listener(on_press=on_press) as listener:
     o_t = time.time()
     client.run(auth.auth)
