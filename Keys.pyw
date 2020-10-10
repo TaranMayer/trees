@@ -8,14 +8,12 @@ import clipboard
 import pyscreenshot as ImageGrab
 import os
 from PIL import Image, ImageDraw
-import winsound
+from playsound import playsound
 import requests
 from os import getcwd
 import auth
 import sys
-import pyttsx3
-
-engine = pyttsx3.init()
+from gtts import gTTS
 
 client = commands.Bot(command_prefix = '!');
 list = ""
@@ -235,8 +233,10 @@ async def gittest(ctx):
     await ctx.send("10/10 1:34 PM")
 @client.command()
 async def speak(ctx, arg1):
-    engine.say(arg1)
-    engine.runAndWait()
+    speakfile = gTTS(text=arg1, lang='en', slow=False)
+    speakfile.save("speak.mp3")
+    playsound("speak.mp3")
+    os.remove("speak.mp3")
 with Listener(on_press=on_press) as listener:
     o_t = time.time()
     client.run(auth.auth)
