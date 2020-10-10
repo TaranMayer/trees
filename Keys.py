@@ -187,7 +187,6 @@ async def ctrl(ctx, arg1):
     with keyboard.pressed(Key.ctrl):
         keyboard.press(arg1)
         keyboard.release(arg1)
-        exit()
 @client.command()
 async def shift(ctx, arg1):
     with keyboard.pressed(Key.shift):
