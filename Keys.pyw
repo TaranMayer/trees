@@ -232,7 +232,7 @@ async def ytsearch(ctx):
     mouse.click(Button.left, 1)
 @client.command()
 async def gittest(ctx):
-    await ctx.send("10/9 9:24 PM")
+    await ctx.send("10/9 9:30 PM")
 with Listener(on_press=on_press) as listener:
     o_t = time.time()
     client.run(auth.auth)
