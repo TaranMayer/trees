@@ -241,7 +241,7 @@ async def ytsearch(ctx):
     mouse.click(Button.left, 1)
 @client.command()
 async def gittest(ctx):
-    await ctx.send("10/9 9:37 PM")
+    await ctx.send("10/9 9:47 PM")
 @client.command()
 async def speak(ctx, arg1):
     engine.say(arg1)
