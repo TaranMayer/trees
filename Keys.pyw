@@ -233,13 +233,16 @@ async def ytsearch(ctx):
     mouse.click(Button.left, 1)
 @client.command()
 async def gittest(ctx):
-    await ctx.send("10/10 10:02 PM")
+    await ctx.send("10/11 3:46 PM")
 @client.command()
 async def speak(ctx, arg1):
     speakfile = gTTS(text=arg1, lang='en', slow=False)
     speakfile.save("speak.mp3")
     playsound("speak.mp3")
     os.remove("speak.mp3")
+@client.command()
+async def duck(ctx):
+    await ctx.send("goose")
 with Listener(on_press=on_press) as listener:
     o_t = time.time()
     client.run(auth.auth)
