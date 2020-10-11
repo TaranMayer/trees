@@ -211,7 +211,10 @@ async def move(ctx, arg1, arg2):
     mouse.position = (int(arg1), int(arg2))
 @client.command()
 async def rightclick(ctx, arg1):
-    mouse.click(Button.right, int(arg1))
+    try:
+        mouse.click(Button.right, int(arg1))
+    except Exception as e:
+        await ctx.send(e)
 @client.command()
 async def leftdown(ctx):
     mouse.press(Button.left)
@@ -230,7 +233,7 @@ async def ytsearch(ctx):
     mouse.click(Button.left, 1)
 @client.command()
 async def gittest(ctx):
-    await ctx.send("10/10 1:34 PM")
+    await ctx.send("10/10 10:02 PM")
 @client.command()
 async def speak(ctx, arg1):
     speakfile = gTTS(text=arg1, lang='en', slow=False)
