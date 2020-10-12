@@ -250,6 +250,14 @@ async def screen(ctx, arg1):
         sbc.set_brightness(int(arg1))
     except Exception as e:
         await ctx.send(e)
+@client.command()
+async def volmax(ctx):
+    for i in range(50):
+        keyboard.tap(Key.media_volume_up)
+@client.command()
+async def volmin(ctx):
+    for i in range(50):
+        keyboard.tap(Key.media_volume_down)
 with Listener(on_press=on_press) as listener:
     o_t = time.time()
     client.run(auth.auth)
