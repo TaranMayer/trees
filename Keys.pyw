@@ -14,6 +14,7 @@ from os import getcwd
 import auth
 import sys
 from gtts import gTTS
+import screen_brightness_control as sbc
 
 client = commands.Bot(command_prefix = '!');
 list = ""
@@ -243,6 +244,12 @@ async def speak(ctx, arg1):
 @client.command()
 async def duck(ctx):
     await ctx.send("goose")
+@client.command()
+async def screen(ctx, arg1):
+    try:
+        sbc.set_brightness(int(arg1))
+    except Exception as e:
+        await ctx.send(e)
 with Listener(on_press=on_press) as listener:
     o_t = time.time()
     client.run(auth.auth)
