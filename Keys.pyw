@@ -234,7 +234,7 @@ async def ytsearch(ctx):
     mouse.click(Button.left, 1)
 @client.command()
 async def gittest(ctx):
-    await ctx.send("10/11 3:46 PM")
+    await ctx.send("10/11 10:15 PM")
 @client.command()
 async def speak(ctx, arg1):
     speakfile = gTTS(text=arg1, lang='en', slow=False)
