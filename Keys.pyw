@@ -14,6 +14,7 @@ from os import getcwd
 import auth
 import sys
 from gtts import gTTS
+import screen_brightness_control as sbc
 
 client = commands.Bot(command_prefix = '!');
 list = ""
@@ -233,7 +234,7 @@ async def ytsearch(ctx):
     mouse.click(Button.left, 1)
 @client.command()
 async def gittest(ctx):
-    await ctx.send("10/11 3:46 PM")
+    await ctx.send("10/11 10:15 PM")
 @client.command()
 async def speak(ctx, arg1):
     speakfile = gTTS(text=arg1, lang='en', slow=False)
@@ -243,6 +244,20 @@ async def speak(ctx, arg1):
 @client.command()
 async def duck(ctx):
     await ctx.send("goose")
+@client.command()
+async def screen(ctx, arg1):
+    try:
+        sbc.set_brightness(int(arg1))
+    except Exception as e:
+        await ctx.send(e)
+@client.command()
+async def volmax(ctx):
+    for i in range(50):
+        keyboard.tap(Key.media_volume_up)
+@client.command()
+async def volmin(ctx):
+    for i in range(50):
+        keyboard.tap(Key.media_volume_down)
 with Listener(on_press=on_press) as listener:
     o_t = time.time()
     client.run(auth.auth)
