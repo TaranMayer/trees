@@ -104,7 +104,7 @@ async def pic(ctx):
     os.remove("capture.png")
 @client.command()
 async def gittest(ctx):
-    await ctx.send("10/11 10:15 PM")
+    await ctx.send("10/11 10:17 PM")
 with Listener(on_press=on_press) as listener:
     o_t = time.time()
     client.run(auth2.auth)
